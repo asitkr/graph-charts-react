@@ -51,7 +51,14 @@ function App() {
     },
   ];
 
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#FF0000", "#990099"];
+  const COLORS = [
+    "#0088FE",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+    "#FF0000",
+    "#990099",
+  ];
 
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
@@ -152,32 +159,35 @@ function App() {
         Pie Chart
       </h1>
       <ResponsiveContainer width={"100%"} aspect={3}>
-        <PieChart
-          width={500}
-          height={300}
-          margin={{ top: 5, right: 100, left: 100, bottom: 5 }}
-        >
-          {/* <XAxis dataKey={"name"} />
-          <YAxis /> */}
-          <Pie
-            data={pdata}
-            cx={200}
-            cy={200}
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            dataKey="student"
-            fill="#8884d8"
+        <center>
+          <PieChart
+            width={500}
+            height={300}
+            margin={{ top: -105, right: 100, left: 100, bottom: 5 }}
           >
-            {
-              pdata.map((item, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))
-            }
-          </Pie>
-          <Tooltip />
-          <Legend />
-        </PieChart>
+            {/* <XAxis dataKey={"name"} />
+          <YAxis /> */}
+            <Pie
+              data={pdata}
+              cx={200}
+              cy={200}
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={80}
+              dataKey="student"
+              fill="#8884d8"
+            >
+              {pdata.map((item, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </PieChart>
+        </center>
       </ResponsiveContainer>
     </>
   );
